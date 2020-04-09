@@ -1,0 +1,17 @@
+{
+  "name": "我的主页",
+  "short_name": "主页",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#FFF",
+  "description": "scenevista的个人主页",
+  "orientation": "portrait-primary",
+  "theme_color": "#FFF",
+  "icons": [
+    {
+      "src": "sites/calc/img/icons/if_apple_2003315.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    }
+  ]
+}
