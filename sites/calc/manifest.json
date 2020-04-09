@@ -1,7 +1,7 @@
 {
   "name": "迷你计算器",
   "short_name": "计算器",
-  "start_url": "/",
+  "start_url": "index.html",
   "display": "standalone",
   "background_color": "#FFF",
   "description": "简陋的计算器，测试用",
