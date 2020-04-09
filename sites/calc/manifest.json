@@ -1,0 +1,17 @@
+{
+  "name": "迷你计算器",
+  "short_name": "计算器",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFF",
+  "description": "简陋的计算器，测试用",
+  "orientation": "portrait-primary",
+  "theme_color": "#FFF",
+  "icons": [
+    {
+      "src": "img/icons/if_apple_2003315.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    }
+  ]
+}
