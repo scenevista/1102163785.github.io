@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
-
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta charset="utf-8" />
     <title>迷你计算器</title>
     <link rel="manifest" href="./manifest.json">
@@ -123,6 +123,17 @@
             <td class="numberkey">/</td>
         </tr>
     </table>
-    
+    <script type="text/javascript">
+        self.addEventListener('fetch', function (e) {
+            e.respondWith(
+                caches.match(e.request).then(function (response) {
+                    if (response != null) {
+                        return response
+                    }
+                    return fetch(e.request.url)
+                })
+            )
+        })
+    </script>
 </body>
 </html>
