@@ -1,12 +1,16 @@
 {
   "ExpandedNodes": [
     "",
+    "\\css",
     "\\js",
     "\\sites",
     "\\sites\\calc",
     "\\sites\\calc\\img",
-    "\\sites\\calc\\img\\icons"
+    "\\sites\\calc\\img\\icons",
+    "\\vendor",
+    "\\vendor\\bootstrap",
+    "\\vendor\\bootstrap\\js"
   ],
-  "SelectedNode": "\\js\\sw.js",
+  "SelectedNode": "\\index.html",
   "PreviewInSolutionExplorer": false
 }

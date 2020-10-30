@@ -19,74 +19,99 @@
 
 <body id="page-top">
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-            <a class="navbar-brand js-scroll-trigger" href="#page-top">scenevista</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand">房贷计算器</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#services">我的小站</a>
+
+            <!--<div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#about">关于</a>
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Dropdown
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                     </li>
                 </ul>
-            </div>
+            </div>-->
         </div>
+
     </nav>
-
-    <header class="bg-primary text-white">
-        <div class="container text-center">
-            <h1>Welcome to Scrolling Nav</h1>
-            <p class="lead">A landing page template freshly redesigned for Bootstrap 4</p>
-        </div>
-    </header>
-
-    <section id="services" class="bg-light">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <h2>我的小站</h2>
-                    <div class="list-group">
-                        <!--<a href="#" class="list-group-item list-group-item-action active">Cras justo odio</a>-->
-                        <a href="sites/calc/index.html" class="list-group-item list-group-item-action">迷你计算器</a>
-                        <a class="list-group-item list-group-item-action">Morbi leo risus</a>
-                        <a class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
-                        <!--<a class="list-group-item list-group-item-action disabled" tabindex="-1" aria-disabled="true">Vestibulum at eros</a>-->
-                    </div>
+    <div class="container">
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <label>贷款金额</label>
+                <input type="number" class="form-control" id="money" placeholder="在此输入金额，单位万元" value="0.0">
+            </div>
+            <div class="form-group col-md-3">
+                <label>贷款期限</label>
+                <input type="number" class="form-control" id="time" placeholder="在此输入期限，单位月" value="360">
+            </div>
+            <div class="form-group col-md-3">
+                <label>当前利率</label>
+                <input type="number" class="form-control" id="rate" placeholder="在此输入利率，如：4.65" value="5.19">
+            </div>
+            <div class="form-group col-md-3">
+                <label>贷款方式</label>
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="lt1" name="loantype" class="custom-control-input">
+                    <label class="custom-control-label" for="lt1">等额</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="lt2" name="loantype" class="custom-control-input" onselect="test(2);">
+                    <label class="custom-control-label" for="lt2">等本</label>
                 </div>
             </div>
         </div>
-    </section>
+        <div class="form-row">
 
-    <section id="about">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <h2>About this page</h2>
-                    <p class="lead">This is a great place to talk about your webpage. This template is purposefully unstyled so you can use it as a boilerplate or starting point for you own landing page designs! This template features:</p>
-                    <ul>
-                        <li>Clickable nav links that smooth scroll to page sections</li>
-                        <li>Responsive behavior when clicking nav links perfect for a one page website</li>
-                        <li>Bootstrap's scrollspy feature which highlights which section of the page you're on in the navbar</li>
-                        <li>Minimal custom CSS so you are free to explore your own unique design options</li>
-                    </ul>
-                </div>
+            <div class="form-group">
+                <a class="btn btn-primary" onclick="test();">计算</a>
             </div>
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="py-5 bg-dark">
-        <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; scenevista 2020</p>
-        </div>
-        <!-- /.container -->
-    </footer>
+
+    </div>
+
+    <script>
+        function test() {
+
+
+
+            try {
+                var totalmoney = parseFloat(money.value);
+                var yearrate = parseFloat(rate.value);
+                yearrate /= 100;
+                var monthrate = yearrate / 12;
+
+                var months = parseFloat(time.value);
+
+                var ans = totalmoney * (monthrate * (Math.pow(monthrate + 1, months)) / (Math.pow(monthrate + 1, months) - 1));
+                ans *= 1000000;
+                ans = Math.round(ans);
+                ans /= 100;
+                alert(ans);
+            } catch (e) {
+                alert(e.message);
+            }
+        }
+    </script>
 
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>

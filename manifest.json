@@ -1,10 +1,10 @@
 {
-  "name": "我的主页",
+  "name": "房贷计算器",
   "short_name": "主页",
   "start_url": "index.html",
   "display": "standalone",
   "background_color": "#FFF",
-  "description": "scenevista的个人主页",
+  "description": "计算器小程序",
   "orientation": "portrait-primary",
   "theme_color": "#FFF",
   "icons": [
