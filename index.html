@@ -9,14 +9,16 @@
     <link rel="manifest" href="/manifest.json">
 
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
-    <link href="css/scrolling-nav.css" rel="stylesheet">
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <script src="Scripts/popper.js"></script>
+    <script src="Scripts/jquery-3.0.0.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
+
+
+
     <link rel="shortcut icon" href="favicon.ico" />
 
-    <script type="module" src="js/pwabuilder-sw-register.js"></script>
 </head>
 
 <body id="page-top">
@@ -113,29 +115,12 @@
                 alert(e.message);
             }
         }
+
+        if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.register("js/sw.js");
+        }
     </script>
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Plugin JavaScript -->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Custom JavaScript for this theme -->
-    <script src="js/scrolling-nav.js"></script>
-    <script>
-        self.addEventListener('fetch', function (e) {
-            e.respondWith(
-                caches.match(e.request).then(function (response) {
-                    if (response != null) {
-                        return response
-                    }
-                    return fetch(e.request.url)
-                })
-            )
-        })
-    </script>
 </body>
 
 </html>
